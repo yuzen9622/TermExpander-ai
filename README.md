@@ -8,7 +8,7 @@ TermExpander AI 是一款專為學術研究與專業寫作設計的 Chrome 擴�
 
 - 即時浮動視窗 (Tooltip)：在網頁中選取任何文字，系統會立即調用 AI 並在選取位置旁邊顯示完整名稱，無需開啟彈出視窗。
 
-- Gemini API 整合：支援 Google Gemini 系列模型（如 Gemini 2.5 Flash, 1.5 Pro），提供快速且準確的語義識別。
+- Gemini API 整合：支援 Google Gemini 系列模型（如 Gemini 2.5 Flash, 2.5 Pro, 2.0 flash lite），提供快速且準確的語義識別。
 
 - 隱私保護：使用者的 API Key 儲存在瀏覽器本地（chrome.storage.local），不經過開發者伺服器。
 
@@ -34,7 +34,7 @@ npm install
 npm run build
 ```
 
-開啟 Chrome 瀏覽器，進入 chrome://extensions/。
+開啟 Chrome 瀏覽器，進入 `chrome://extensions/`。
 
 開啟右上角的 「開發者模式 (Developer mode)」。
 

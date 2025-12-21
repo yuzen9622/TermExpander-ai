@@ -16,9 +16,7 @@ API 金鑰 (API Key)： 您所提供的 Google Gemini API 金鑰會透過 chrome
 本地儲存： 所有的設定（如 API 金鑰、模型選擇）皆儲存於您的裝置本地。
 
 3. 資料的披露與第三方傳輸
-   外部 API 請求： 為了提供 AI 功能，您的選取文字會透過加密的 HTTPS 連線傳送至 [Google Gemini API](https://www.google.com/search?q=generativelanguage.googleapis.com)。該資料的處理受 Google 隱私權政策 之約束。
-
-不轉售資料： 我們絕不會向任何第三方出售、轉讓或使用您的資料進行廣告投放。
+   外部 API 請求： 為了提供 AI 功能，您的選取文字會透過加密的 HTTPS 連線傳送至 [Google Gemini API](https://www.google.com/search?q=generativelanguage.googleapis.com)。該資料的處理受 Google 隱私權政策 之約束。不轉售資料： 我們絕不會向任何第三方出售、轉讓或使用您的資料進行廣告投放。
 
 4. 安全性
    我們使用現代加密技術 (HTTPS) 傳輸所有傳出資料。由於所有敏感資料（如 API Key）皆儲存在您的本地設備中，您可以隨時透過清除瀏覽器資料或解除安裝擴充功能來刪除這些資訊。

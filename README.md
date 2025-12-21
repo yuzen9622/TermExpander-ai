@@ -54,7 +54,7 @@ Storage: Chrome Storage API (Local)
 
 點擊 「轉換」。
 
-輸出結果：「[智慧導學系統（Intelligent Tutoring Systems, ITS）] 結合 [檢索增強生成（Retrieval-Augmented Generation, RAG）] 能顯著提升學習效率。」
+輸出結果：「智慧導學系統（Intelligent Tutoring Systems, ITS） 結合 [檢索增強生成（Retrieval-Augmented Generation, RAG）] 能顯著提升學習效率。」
 
 隱私與安全性
 本工具僅於使用者選取文字或主動點擊轉換時與 Google API 連線。

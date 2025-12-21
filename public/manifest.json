@@ -1,0 +1,36 @@
+{
+    "manifest_version": 3,
+    "name": "TermExpander AI",
+    "version": "1.0.0",
+    "background": {
+        "service_worker": "background.js",
+        "type": "module"
+    },
+    "icons": {
+        "32": "/icons/icon-32.png",
+        "64": "/icons/icon-64.png",
+        "128": "/icons/icon-128.png"
+    },
+    "action": {
+        "default_popup": "index.html"
+    },
+    "permissions": [
+        "storage",
+        "scripting",
+        "activeTab"
+    ],
+    "host_permissions": [
+        "<all_urls>"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "content.js"
+            ],
+            "run_at": "document_idle"
+        }
+    ]
+}

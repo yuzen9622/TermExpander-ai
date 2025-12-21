@@ -11,6 +11,7 @@ import { TermExpanderTextAreaField } from "@/shared/components/TermExpanderTextA
 
 import { callGemini } from "@/shared/lib/gemini";
 import { loadSettings, saveSettings } from "@/shared/lib/settings";
+import TermExpanderFooter from "./TermExpanderFooter";
 
 type StoredSettings = {
   enableWeb: boolean;
@@ -159,6 +160,7 @@ export function TermExpanderApp() {
         placeholder="結果會出現在這裡"
         readOnly
       />
+      <TermExpanderFooter />
 
       <TermExpanderSettings
         enableWeb={enableWeb}

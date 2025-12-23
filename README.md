@@ -1,4 +1,18 @@
-# TermExpander AI
+<p align="center">
+ <img src="./public/icons/icon-64.png" alt="Version">
+</p>
+<h1 align='center'>
+TermExpander AI 
+</h1>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/version-1.0.0-blue?style=flat-square" alt="Version">
+  <img src="https://img.shields.io/badge/Manifest-V3-orange?style=flat-square" alt="Manifest V3">
+  <img src="https://img.shields.io/badge/Platform-Chrome-4285F4?logo=google-chrome&logoColor=white&style=flat-square" alt="Chrome Extension">
+  <img src="https://img.shields.io/badge/license-MIT-green?style=flat-square" alt="License">
+</p>
+
+---
 
 TermExpander AI 是一款專為學術研究與專業寫作設計的 Chrome 擴充功能。它利用大型語言模型（LLM）技術，自動識別文本中的縮寫或專有名詞，並將其轉化為規範化的學術格式：[中文名稱（英文名稱, 縮寫）]。
 
@@ -24,7 +38,7 @@ LLM API: Google Gemini API
 
 Storage: Chrome Storage API (Local)
 
-### 快速開始
+### 本地部屬
 
 1. 安裝步驟
    下載或 Clone 此專案資料夾到本地。

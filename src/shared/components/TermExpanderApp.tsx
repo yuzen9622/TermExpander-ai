@@ -133,7 +133,7 @@ export function TermExpanderApp() {
   }, [apiKey, inputText, model]);
 
   return (
-    <div className="w-full">
+    <div className=" w-full">
       <TermExpanderHeader />
 
       <TermExpanderTextAreaField

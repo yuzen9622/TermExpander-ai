@@ -85,3 +85,58 @@ npm run build
 不收集使用者的瀏覽歷史。
 
 詳細資訊請參閱 [隱私權政策連結](/privacy.md)。
+
+### 協作
+
+歡迎一起協作！為了讓功能與品質一致，請依照以下規則進行。
+
+### 開始之前
+
+1. 先到 Issues 確認是否已有相同問題/需求。
+2. 若是新需求或 bug，請開一個 Issue，描述：
+   - 預期行為 / 實際行為（或需求目標）
+   - 重現步驟（含網站/頁面，例如 Notion、Google Docs）
+   - 相關截圖或錄影（可選）
+   - 環境資訊（Chrome 版本、OS）
+
+### 分支規則
+
+- 從 `main` 拉分支。
+- 命名建議：
+  - `feat/<short-topic>`：新功能
+  - `fix/<short-topic>`：修 bug
+  - `docs/<short-topic>`：文件
+  - `chore/<short-topic>`：雜項（重構、工具設定）
+
+### Commit 規則
+
+- 建議採用 Conventional Commits：
+  - `feat: ...`、`fix: ...`、`docs: ...`、`chore: ...`、`refactor: ...`
+- 一個 commit 盡量只做一件事；訊息要能描述「做了什麼」而不是「改了哪裡」。
+
+### PR 流程
+
+1. PR 需連結對應 Issue（例如在描述中寫 `Closes #123`）。
+2. PR 描述請包含：
+   - 變更內容摘要
+   - 影響範圍（popup / content script / background / shared）
+   - 測試方式與結果（至少 `npm run build`）
+3. 請避免在同一個 PR 混入不相關重構與功能修改。
+
+### 本地開發與驗證
+
+```bash
+npm install
+npm run build
+```
+
+- 載入擴充功能：`chrome://extensions/` → Developer mode → Load unpacked → 選 `dist/`
+- 修改後若牽涉到 content script，通常需要「重新載入擴充功能」並「重新整理目標頁面」才會生效。
+
+### 程式碼風格與範圍
+
+- 優先保持改動最小、聚焦在需求本身。
+- 不要加入額外 UI/頁面/設定，除非 Issue 明確要求。
+- 變更 content script（`src/extension/content.ts`）時，請特別注意：
+  - 不要破壞一般網站的選取/複製行為
+  - 針對特殊網站（Notion/Google Docs）要有 fallback 或提示

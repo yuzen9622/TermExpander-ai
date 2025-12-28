@@ -66,7 +66,7 @@ export const TermExpanderSettings = memo(function TermExpanderSettings({
                   htmlFor="enableWeb"
                   className="text-xs font-normal leading-snug"
                 >
-                  啟用網頁選字工具提示（需重新整理頁面生效）
+                  啟用網頁選字工具提示
                 </Label>
               </div>
               <p className="text-xs text-muted-foreground">

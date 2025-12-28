@@ -1,6 +1,7 @@
 {
     "manifest_version": 3,
     "name": "TermExpander AI",
+    "description": "一款專為學術研究與專業寫作設計的 Chrome 擴充功能。利用大型語言模型，自動識別文本中的縮寫或專有名詞，並將其轉化為規範化的學術格式：[中文名稱（英文名稱, 縮寫）]。",
     "version": "1.0.0",
     "background": {
         "service_worker": "background.js",

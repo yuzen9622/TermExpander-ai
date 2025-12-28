@@ -8,6 +8,10 @@
 let tooltip: HTMLDivElement | null = null;
 let enableWebSelection = true;
 
+let lastPointer: { x: number; y: number } | null = null;
+let lastCopiedText: string = "";
+let lastCopiedAt = 0;
+
 const TOOLTIP_STYLE_ID = "term-expander-tooltip-style";
 
 function ensureStyles() {
@@ -209,6 +213,8 @@ try {
 }
 
 document.addEventListener("mouseup", (event) => {
+  lastPointer = { x: event.pageX, y: event.pageY };
+
   if (!enableWebSelection) {
     removeTooltip();
     return;
@@ -228,7 +234,33 @@ document.addEventListener("mouseup", (event) => {
   // 移除舊的框框
   removeTooltip();
 
-  if (selection.length === 0) return;
+  if (selection.length === 0) {
+    // Google Docs often doesn't expose selected text via Selection API.
+    // Provide a fallback hint so users know how to proceed.
+    const isFreshClipboard = Date.now() - lastCopiedAt < 2000;
+    const clipped = lastCopiedText.trim();
+    if (isFreshClipboard && clipped.length > 0) {
+      if (clipped.length > 200) {
+        showTooltip(
+          event.pageX,
+          event.pageY,
+          "（選取文字過長，請選 200 字以內）",
+          {
+            canQuery: false,
+            selectedText: "",
+          }
+        );
+      } else {
+        showTooltip(event.pageX, event.pageY, "已取得最近複製內容。", {
+          canQuery: true,
+          selectedText: clipped,
+        });
+      }
+      return;
+    }
+
+    return;
+  }
 
   // 限制長度避免整段誤觸；但仍顯示提示，避免使用者以為沒有啟動
   if (selection.length > 200) {
@@ -244,6 +276,39 @@ document.addEventListener("mouseup", (event) => {
     selectedText: selection,
   });
 });
+
+// Google Docs fallback: try to read the copied text on Ctrl/Meta+C (user gesture).
+document.addEventListener(
+  "keydown",
+  async (event) => {
+    if (!enableWebSelection) return;
+
+    const key = String(event.key || "").toLowerCase();
+    const isCopyCombo = key === "c" && (event.ctrlKey || event.metaKey);
+    if (!isCopyCombo) return;
+
+    try {
+      const text = (await navigator.clipboard.readText()).trim();
+      if (!text) return;
+
+      lastCopiedText = text;
+      lastCopiedAt = Date.now();
+
+      // Use last pointer location if available.
+      const x = lastPointer?.x ?? 0;
+      const y = lastPointer?.y ?? 0;
+      if (x || y) {
+        showTooltip(x, y, "已從剪貼簿取得文字。", {
+          canQuery: true,
+          selectedText: text.length > 200 ? text.slice(0, 200) : text,
+        });
+      }
+    } catch {
+      // Clipboard read may be blocked; user can still use normal pages.
+    }
+  },
+  true
+);
 
 // Some sites (e.g., Notion) intercept/disable copy. When the selection is inside our tooltip,
 // force the clipboard contents and stop propagation so the page can't override it.
